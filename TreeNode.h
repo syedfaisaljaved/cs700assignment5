@@ -8,8 +8,9 @@
 
 class TreeNode: public Binary_Tree<char>{
 private:
+    BTNode<char> * addNode(char alphabet, const std::string& codePath, unsigned int index, BTNode<char>* rootNode);
 public:
     TreeNode();
-    void addNoteToTree();
+    void addRootNodeToTree(char alphabet, const std::string& codePath);
     void decodeMorseCode();
 };

@@ -27,8 +27,10 @@ void MorseCode::mapMorseCode() {
     treeNode = new TreeNode();
 
     while (getline(fileStream,line)){
-        morseCodeMap[line[0]] = line.substr(1, line.size());
-        treeNode->addNoteToTree();
+        char alphabet = line[0];
+        string morseCode = line.substr(1, line.size());
+        morseCodeMap[alphabet] = morseCode;
+        treeNode->addRootNodeToTree(alphabet, morseCode);
     }
 
     fileStream.close();
