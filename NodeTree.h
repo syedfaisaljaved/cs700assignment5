@@ -4,7 +4,9 @@
 
 #pragma once
 
-class MorseCode{
+#include "Binary_Tree.h"
+
+class NodeTree: public Binary_Tree<char>{
 private:
 public:
 };
