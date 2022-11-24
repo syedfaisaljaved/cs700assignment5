@@ -12,5 +12,6 @@ private:
 public:
     TreeNode();
     void addRootNodeToTree(char alphabet, const std::string& codePath);
-    void decodeMorseCode();
+    void decode(const std::string& morseCode, unsigned int index, BTNode<char>* rootNode);
+    void encode(const std::string& morseCode, unsigned int index, BTNode<char>* rootNode);
 };

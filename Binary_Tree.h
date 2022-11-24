@@ -129,6 +129,44 @@ template<typename Item_Type>
   }
 }
 
+template<typename Item_Type>
+Binary_Tree<Item_Type>
+Binary_Tree<Item_Type>::get_left_subtree() const {
+    if (root == NULL) {
+        throw std::invalid_argument("get_left_subtree on empty tree");
+    }
+    return Binary_Tree<Item_Type>(root->left);
+}
+
+template<typename Item_Type>
+Binary_Tree<Item_Type>
+Binary_Tree<Item_Type>::get_right_subtree() const {
+    if (root == NULL) {
+        throw std::invalid_argument("get_right_subtree on null tree");
+    }
+    return Binary_Tree<Item_Type>(root->right);
+}
+
+template<typename Item_Type>
+const Item_Type& Binary_Tree<Item_Type>::get_data() const {
+    if (root == NULL) {
+        throw std::invalid_argument("get_data on null tree");
+    }
+    return root->data;
+}
+
+template<typename Item_Type>
+bool Binary_Tree<Item_Type>::is_null() const {
+    return root == NULL;
+}
+
+template<typename Item_Type>
+bool Binary_Tree<Item_Type>::is_leaf() const {
+    if (root != NULL) {
+        return root->left == NULL && root->right == NULL;
+    } else
+        return true;
+}
 
 
 #endif

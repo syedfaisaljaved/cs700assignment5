@@ -12,7 +12,7 @@ MorseCode::MorseCode() {
 }
 
 void MorseCode::mapMorseCode() {
-    ifstream fileStream("Morse_Code.txt");
+    ifstream fileStream("/Users/faisal/CLionProjects/cs700assignment5/Morse_Code.txt");
 
     /// Checks if the file is NOT opened then throw an error and stop the program.
     if (!fileStream.is_open()) {
@@ -29,14 +29,13 @@ void MorseCode::mapMorseCode() {
     while (getline(fileStream, line)) {
         char alphabet = line[0];
         string morseCode = line.substr(1, line.size());
-        morseCodeMap[alphabet] = morseCode;
         treeNode->addRootNodeToTree(alphabet, morseCode);
     }
 
     fileStream.close();
 }
 
-string MorseCode::encodeMessage(const string& message) {
+void MorseCode::encodeMessage(const string& message) {
     string morseCode;
     for (char alphabet : message) {
         if (alphabet == ' ') {
@@ -44,9 +43,11 @@ string MorseCode::encodeMessage(const string& message) {
             continue;
         }
 
-        morseCode += this->morseCodeMap[index];
     }
 
-    return morseCode;
+}
+
+void MorseCode::decodeMorseCode(const std::string& morseCode) {
+    treeNode->decodeMorseCode(morseCode);
 }
 
