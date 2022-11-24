@@ -13,6 +13,6 @@ private:
     void mapMorseCode();
 public:
     MorseCode();
-    void encodeMessage();
-    void decodeMessage();
+    std::string encodeMessage(const std::string& message);
+    std::string decodeMorseCode(std::string morseCode);
 };

@@ -8,7 +8,7 @@
 using namespace std;
 
 MorseCode::MorseCode() {
-mapMorseCode();
+    mapMorseCode();
 }
 
 void MorseCode::mapMorseCode() {
@@ -26,7 +26,7 @@ void MorseCode::mapMorseCode() {
     string line;
     treeNode = new TreeNode();
 
-    while (getline(fileStream,line)){
+    while (getline(fileStream, line)) {
         char alphabet = line[0];
         string morseCode = line.substr(1, line.size());
         morseCodeMap[alphabet] = morseCode;
@@ -34,5 +34,19 @@ void MorseCode::mapMorseCode() {
     }
 
     fileStream.close();
+}
+
+string MorseCode::encodeMessage(const string& message) {
+    string morseCode;
+    for (char alphabet : message) {
+        if (alphabet == ' ') {
+            morseCode += ' ';
+            continue;
+        }
+
+        morseCode += this->morseCodeMap[index];
+    }
+
+    return morseCode;
 }
 
