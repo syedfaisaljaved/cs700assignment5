@@ -13,4 +13,6 @@ private:
     void mapMorseCode();
 public:
     MorseCode();
+    void encodeMessage();
+    void decodeMessage();
 };
