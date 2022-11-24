@@ -6,10 +6,10 @@
 
 #include "Binary_Tree.h"
 
-class NodeTree: public Binary_Tree<char>{
+class TreeNode: public Binary_Tree<char>{
 private:
 public:
-    NodeTree();
+    TreeNode();
     void addNoteToTree();
     void decodeMorseCode();
 };

@@ -3,4 +3,4 @@ project(cs700assignment5)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cs700assignment5 main.cpp Binary_Tree.h BTNode.h MorseCode.cpp MorseCode.h NodeTree.cpp NodeTree.h)
+add_executable(cs700assignment5 main.cpp Binary_Tree.h BTNode.h MorseCode.cpp MorseCode.h TreeNode.cpp TreeNode.h)

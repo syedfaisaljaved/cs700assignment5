@@ -69,7 +69,7 @@ Binary_Tree(const Item_Type& the_data,
   protected:
 
   // Protected constructor
-  /** Construct a Binary_Tree with a given node as the root */
+  /** Construct a Binary_Tree with a given treeNode as the root */
 Binary_Tree(BTNode<Item_Type>* new_root) : root(new_root) {}
 
   // Data Field

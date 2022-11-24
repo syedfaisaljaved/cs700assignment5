@@ -4,12 +4,12 @@
 
 #pragma once
 #include <unordered_map>
-#include "NodeTree.h"
+#include "TreeNode.h"
 
 class MorseCode{
 private:
     std::unordered_map<char, std::string> morseCodeMap;
-    NodeTree* node;
+    TreeNode* treeNode;
     void mapMorseCode();
 public:
     MorseCode();
