@@ -9,4 +9,7 @@
 class NodeTree: public Binary_Tree<char>{
 private:
 public:
+    NodeTree();
+    void addNoteToTree();
+    void decodeMorseCode();
 };
