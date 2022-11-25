@@ -96,7 +96,7 @@ void MorseCode::decode(const string &morseCodeLetter, unsigned int index, BTNode
     }
 }
 
-void MorseCode::checkMessageForErrors() {
+void MorseCode::checkMessageForErrors(string &message) {
 
 }
 
