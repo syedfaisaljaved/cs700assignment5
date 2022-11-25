@@ -7,13 +7,14 @@
  ****************************/
 
 
-#include <iostream> /// library that controls reading from and writing to the standard streams.<br>
-
 /**
  * @file MorseCode.h
  * @brief user-defined header file MorseCode.h to propagate declarations to code file. <br >
  * */
 #include "MorseCode.h"
+
+#include <iostream> /// library that controls reading from and writing to the standard streams.<br>
+
 
 /**
  * 'namespace' is used to organise the names of program entities.

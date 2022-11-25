@@ -6,14 +6,14 @@
  * Student ID: 200491169
  ****************************/
 
-#include <iostream> /// library that controls reading from and writing to the standard streams.
-#include <fstream> /// library that implements high-level input/output operations on file based streams.
-
 /**
  * @file MorseCode.h
  * @brief user-defined header file MorseCode.h to propagate declarations to code file. <br >
  * */
 #include "MorseCode.h"
+
+#include <iostream> /// library that controls reading from and writing to the standard streams.
+#include <fstream> /// library that implements high-level input/output operations on file based streams.
 
 /**
  * 'namespace' is used to organise the names of program entities.
