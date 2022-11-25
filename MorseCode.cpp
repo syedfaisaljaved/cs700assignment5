@@ -41,6 +41,11 @@ MorseCode::MorseCode() {
  *          @bug No known bugs
  * */
 void MorseCode::mapMorseCode() {
+
+    /**
+     * creating an object of input file stream to perform read operations.
+     * takes @a StudentDataCollection.getSecondFileInputName function as a @c string argument which returns the file name.
+     * */
     ifstream fileStream("Morse_Code.txt");
 
     /// Checks if the file is NOT opened then throw an error and stop the program.
@@ -52,16 +57,17 @@ void MorseCode::mapMorseCode() {
         throw invalid_argument("Unable to read file.");
     }
 
-    string line;
+    string line; /// creating a variable to store each line from file
 
+    /// while loop to iterate over all the content of file
     while (getline(fileStream, line)) {
-        char alphabet = line[0];
-        string morseCode = line.substr(1, line.size());
-        morseCodeMap[alphabet] = morseCode;
-        addNodeBT(alphabet, morseCode, 0, binaryTree);
+        char alphabet = line[0]; /// storing the alphabet
+        string morseCode = line.substr(1, line.size()); /// storing the morse code
+        morseCodeMap[alphabet] = morseCode; /// mapping alphabet and morse code
+        addNodeBT(alphabet, morseCode, 0, binaryTree); /// calling func @a MorseCoe::addNodeBT to add alphabets to binary tree
     }
 
-    fileStream.close();
+    fileStream.close(); /// closing the file stream
 }
 
 /**
@@ -79,21 +85,27 @@ void MorseCode::mapMorseCode() {
  *          @bug No known bugs
  * */
 BTNode<char> *MorseCode::addNodeBT(char alphabet, const string &codePath, unsigned int index, Binary_Tree<char>* rootTree) {
+    /// checking if the root node is null or not
     if (rootTree->is_null()) {
-        rootTree->setRoot(new BTNode<char>(' '));
+        rootTree->setRoot(new BTNode<char>(' ')); /// creating a root node in the binary tree
     }
 
+    /// traverse to left tree is '.' is encountered
     if (codePath[index] == '.') {
-        auto left = rootTree->get_left_subtree();
-        rootTree->getRoot()->left = addNodeBT(alphabet, codePath, ++index, &left);
-    } else if (codePath[index] == '-') {
-        auto right = rootTree->get_right_subtree();
-        rootTree->getRoot()->right = addNodeBT(alphabet, codePath, ++index, &right);
-    } else {
-        rootTree->set_data(alphabet);
+        auto left = rootTree->get_left_subtree(); /// storing the left subtree into a variable
+        rootTree->getRoot()->left = addNodeBT(alphabet, codePath, ++index, &left); /// assigning left node of root a new subtree
+    }
+    /// traverse to left tree is '-' is encountered
+    else if (codePath[index] == '-') {
+        auto right = rootTree->get_right_subtree(); /// storing the right subtree into a variable
+        rootTree->getRoot()->right = addNodeBT(alphabet, codePath, ++index, &right); /// assigning right node of root a new subtree
+    }
+    /// else set the data of the node
+    else {
+        rootTree->set_data(alphabet); /// set set the alphabet to the node data
     }
 
-    return rootTree->getRoot();
+    return rootTree->getRoot(); /// return the node
 }
 
 /**
@@ -108,23 +120,27 @@ BTNode<char> *MorseCode::addNodeBT(char alphabet, const string &codePath, unsign
  *          @bug No known bugs
  * */
 void MorseCode::encodeMessage(string &message) {
-    checkMessageForErrors(message);
-    string morseCode;
+
+    checkMessageForErrors(message); /// calling @a MorseCode::checkMessageForErrors to check for errors in the message
+    string morseCode; /// creating a variable to store encoded morse code
+
+    /// using a for loop to encode the message
     for (char alphabet: message) {
+        /// check if the char is whitespace then add a delimiter '/' and a whitespace to it
         if (alphabet == ' ') {
             morseCode += "/ ";
             continue;
         }
-
+        /// if the char is in uppercase convert it lowercase as all the tree contains lowercase letters
         if (isupper(alphabet)) {
-            alphabet = tolower(alphabet);
+            alphabet = tolower(alphabet); /// converting uppercase to lowercase
         }
 
-        morseCode += morseCodeMap[alphabet] + ' ';
+        morseCode += morseCodeMap[alphabet] + ' '; /// adding the the morsecode to the string to get a full encoded message
     }
 
-    message = morseCode;
-    cout << morseCode << endl;
+    message = morseCode; /// re-assigning message to morse code to help decode the message without returning a string
+    cout << morseCode << endl; /// print the morse code after encoding the message
 }
 
 /**
@@ -139,11 +155,16 @@ void MorseCode::encodeMessage(string &message) {
  *          @bug No known bugs
  * */
 void MorseCode::decodeMorseCode(const std::string &morseCode) {
-    checkMorseCodeForErrors(morseCode);
+    checkMorseCodeForErrors(morseCode); /// calling func @a MorseCode::checkMorseCodeForErrors to check for errors in encoded message
+
+    /**
+     * creating an object of @c istringstream class to stream the string into different variables.
+     * Takes a string as an argument.
+     * */
     istringstream stringstream(morseCode);
-    string morseCodeLetter;
+    string morseCodeLetter; /// stores morse code of a letter
     while(stringstream >> morseCodeLetter){
-        decode(morseCodeLetter, 0, binaryTree);
+        decode(morseCodeLetter, 0, binaryTree); /// calling func @a MorseCode::decode to decode the morse code
     }
 }
 
@@ -161,17 +182,24 @@ void MorseCode::decodeMorseCode(const std::string &morseCode) {
  *          @bug No known bugs
  * */
 void MorseCode::decode(const string &morseCodeLetter, unsigned int index, Binary_Tree<char> *rootTree) {
-    char morseCodeChar = morseCodeLetter[index];
+    char morseCodeChar = morseCodeLetter[index]; /// storing a char of the morse code
 
+    /// check if the char matches then go to left subtree
     if(morseCodeChar == '.'){
-        auto left = rootTree->get_left_subtree();
-        decode(morseCodeLetter, ++index, &left);
-    } else if(morseCodeChar == '-'){
-        auto right = rootTree->get_right_subtree();
-        decode(morseCodeLetter, ++index, &right);
-    } else if(morseCodeChar == '/'){
+        auto left = rootTree->get_left_subtree(); /// storing the left subtree into a variable
+        decode(morseCodeLetter, ++index, &left); /// recursive calling the func to traverse the tree
+    }
+    /// check if the char matches then go to right subtree
+    else if(morseCodeChar == '-'){
+        auto right = rootTree->get_right_subtree(); /// storing the right subtree into a variable
+        decode(morseCodeLetter, ++index, &right); /// recursive calling the func to traverse the tree
+    }
+    /// check if the char matches whitespace then print it
+    else if(morseCodeChar == '/'){
         cout << " ";
-    } else {
+    }
+    /// else print the char inside the current node
+    else {
         cout << rootTree->get_data();
     }
 }
@@ -188,14 +216,19 @@ void MorseCode::decode(const string &morseCodeLetter, unsigned int index, Binary
  *          @bug No known bugs
  * */
 void MorseCode::checkMessageForErrors(const string &message) {
+    /// using try catch to throw and catch an exception
     try{
+        /// using for loop to iterate over the message
         for(const char alphabet: message){
+            /// check if char is not alpha nor whitespace then throw exception
             if(!isalpha(alphabet) && alphabet != ' '){
-                throw exception();
+                throw exception(); /// throwing exception
             }
         }
     }catch(exception e){
+        /// printing the exception
         cout << "Error: message should only contains alphabets and whitespaces." << endl;
+        /// exiting the program
         exit(0);
     }
 }
@@ -212,16 +245,20 @@ void MorseCode::checkMessageForErrors(const string &message) {
  *          @bug No known bugs
  * */
 void MorseCode::checkMorseCodeForErrors(const std::string& morseCodeMessage) {
+    /// using try catch to throw and catch an exception
     try{
+        /// using for loop to iterate over the message
         for(const char morseCode: morseCodeMessage){
-            if(morseCode == '.' || morseCode == '-' || morseCode == '/'){
+            /// check if char '.', '-', or '/' then continue else throw exception
+            if(morseCode == '.' || morseCode == '-' || morseCode == '/' || morseCode == ' '){
                 continue;
             }
-
-            throw exception();
+            throw exception(); /// throwing exception
         }
     }catch(exception e){
+        /// printing the exception
         cout << "Error: morse code is not properly encoded." << endl;
+        /// exiting the program
         exit(0);
     }
 }
