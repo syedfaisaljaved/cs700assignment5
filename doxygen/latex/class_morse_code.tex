@@ -1,0 +1,601 @@
+\hypertarget{class_morse_code}{}\doxysection{Morse\+Code Class Reference}
+\label{class_morse_code}\index{MorseCode@{MorseCode}}
+
+
+{\ttfamily \#include $<$Morse\+Code.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_morse_code_a4f457e323c0165b2bc8a9f8fcf105812}{Morse\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Constructor taking no param. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}{map\+Morse\+Code}} ()
+\item 
+void \mbox{\hyperlink{class_morse_code_a837e217d330d56ce75d81ac270e1521f}{encode\+Message}} (std\+::string \&message)
+\item 
+void \mbox{\hyperlink{class_morse_code_afef83f07be2451fb957fa3f55740843b}{decode\+Morse\+Code}} (const std\+::string \&morse\+Code)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ char $>$ $\ast$ \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{add\+Node\+BT}} (char alphabet, const std\+::string \&code\+Path, unsigned int index, \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ char $>$ $\ast$root\+Tree)
+\item 
+void \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{decode}} (const std\+::string \&morse\+Code\+Letter, unsigned int index, \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ char $>$ $\ast$root\+Tree)
+\item 
+void \mbox{\hyperlink{class_morse_code_a137fa8672c550eab0bb526b6137f01f8}{check\+Message\+For\+Errors}} (const std\+::string \&message)
+\item 
+void \mbox{\hyperlink{class_morse_code_afc393b90f57ea5d7fd5aa4ad5f7e2093}{check\+Morse\+Code\+For\+Errors}} (const std\+::string \&morse\+Code\+Message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ char $>$ $\ast$ \mbox{\hyperlink{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}{binary\+Tree}}
+\begin{DoxyCompactList}\small\item\em Binary\+Tree pointer object. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{class_morse_code_aa06bef23ee7b46c92e23acf28854fcce}{morse\+Code\+Map}}
+\begin{DoxyCompactList}\small\item\em unordered map variable to contain mapped morse code and alphabet values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+~\newline
+ Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: Class is a user-\/defined data type, which holds its own data members and member functions, which can be accessed and used by creating an instance of that class. Defining variables, methods and constructor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_morse_code_a4f457e323c0165b2bc8a9f8fcf105812}\label{class_morse_code_a4f457e323c0165b2bc8a9f8fcf105812}} 
+\index{MorseCode@{MorseCode}!MorseCode@{MorseCode}}
+\index{MorseCode@{MorseCode}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{MorseCode()}{MorseCode()}}
+{\footnotesize\ttfamily Morse\+Code\+::\+Morse\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor taking no param. 
+
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ initialized binary tree. 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000013}{Bug}}]no known bug \end{DoxyRefDesc}
+object {\itshape \mbox{\hyperlink{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}{Morse\+Code\+::binary\+Tree}}} is initialized in the constructor.
+
+References \mbox{\hyperlink{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}{binary\+Tree}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}\label{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}} 
+\index{MorseCode@{MorseCode}!addNodeBT@{addNodeBT}}
+\index{addNodeBT@{addNodeBT}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{addNodeBT()}{addNodeBT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ char $>$ $\ast$ Morse\+Code\+::add\+Node\+BT (\begin{DoxyParamCaption}\item[{char}]{alphabet,  }\item[{const std\+::string \&}]{code\+Path,  }\item[{unsigned int}]{index,  }\item[{\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ char $>$ $\ast$}]{root\+Tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function sets the data of the node in the binary tree after traversing to the right position using morse code ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alphabet} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em code\+Path} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em root\+Tree} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} \mbox{\hyperlink{struct_b_t_node}{BTNode$<$char$>$}} 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a char containing alphabet, a string containing morse code, an index and a binary tree is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ binary tree is filled with values. 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000009}{Bug}}]No known bugs \end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function sets the data of the node in the binary tree after traversing to the right position using morse code ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alphabet} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em code\+Path} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em root\+Tree} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} \mbox{\hyperlink{struct_b_t_node}{BTNode$<$char$>$}} 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a char containing alphabet, a string containing morse code, an index and a binary tree is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ binary tree is filled with values. 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000003}{Bug}}]No known bugs \end{DoxyRefDesc}
+checking if the root node is null or not
+
+creating a root node in the binary tree
+
+traverse to left tree is \textquotesingle{}.\textquotesingle{} is encountered
+
+storing the left subtree into a variable
+
+assigning left node of root a new subtree
+
+traverse to left tree is \textquotesingle{}-\/\textquotesingle{} is encountered
+
+storing the right subtree into a variable
+
+assigning right node of root a new subtree
+
+else set the data of the node
+
+set set the alphabet to the node data
+
+return the node
+
+References \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{add\+Node\+BT()}}, \mbox{\hyperlink{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::get\+\_\+left\+\_\+subtree()}}, \mbox{\hyperlink{class_binary___tree_a507650166bae2396ffc2784a445b71e8}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::get\+\_\+right\+\_\+subtree()}}, \mbox{\hyperlink{class_binary___tree_a8b4fbf192f1c1c0985ad2cd842736295}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::get\+Root()}}, \mbox{\hyperlink{class_binary___tree_a4401f6c9624f4ebf871babdd48706940}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::is\+\_\+null()}}, \mbox{\hyperlink{class_binary___tree_ad4b942f7cd2e16b99788bbac1e0475d7}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::set\+\_\+data()}}, and \mbox{\hyperlink{class_binary___tree_ae87dc75043551988f06a2088a4ef1c92}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::set\+Root()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{add\+Node\+BT()}}, and \mbox{\hyperlink{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}{map\+Morse\+Code()}}.
+
+\mbox{\Hypertarget{class_morse_code_a137fa8672c550eab0bb526b6137f01f8}\label{class_morse_code_a137fa8672c550eab0bb526b6137f01f8}} 
+\index{MorseCode@{MorseCode}!checkMessageForErrors@{checkMessageForErrors}}
+\index{checkMessageForErrors@{checkMessageForErrors}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{checkMessageForErrors()}{checkMessageForErrors()}}
+{\footnotesize\ttfamily void Morse\+Code\+::check\+Message\+For\+Errors (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function checks for the errors in the message to be encoded ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string message is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ throws exception is the message contains chars which are not alpha or whitespace 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000011}{Bug}}]No known bugs \end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function checks for the errors in the message to be encoded ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string message is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ throws exception is the message contains chars which are not alpha or whitespace 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000007}{Bug}}]No known bugs \end{DoxyRefDesc}
+using try catch to throw and catch an exception
+
+using for loop to iterate over the message
+
+check if char is not alpha nor whitespace then throw exception
+
+throwing exception
+
+printing the exception
+
+exiting the program
+
+Referenced by \mbox{\hyperlink{class_morse_code_a837e217d330d56ce75d81ac270e1521f}{encode\+Message()}}.
+
+\mbox{\Hypertarget{class_morse_code_afc393b90f57ea5d7fd5aa4ad5f7e2093}\label{class_morse_code_afc393b90f57ea5d7fd5aa4ad5f7e2093}} 
+\index{MorseCode@{MorseCode}!checkMorseCodeForErrors@{checkMorseCodeForErrors}}
+\index{checkMorseCodeForErrors@{checkMorseCodeForErrors}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{checkMorseCodeForErrors()}{checkMorseCodeForErrors()}}
+{\footnotesize\ttfamily void Morse\+Code\+::check\+Morse\+Code\+For\+Errors (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{morse\+Code\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function checks for the errors in the morse code to be decoded ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string morsecode\+Message is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ throws exception is the morse code contains chars apart from \textquotesingle{}.\textquotesingle{} , \textquotesingle{}\+\_\+\textquotesingle{} and \textquotesingle{}/\textquotesingle{} 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000012}{Bug}}]No known bugs \end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function checks for the errors in the morse code to be decoded ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string morsecode\+Message is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ throws exception is the morse code contains chars apart from \textquotesingle{}.\textquotesingle{} , \textquotesingle{}\+\_\+\textquotesingle{} and \textquotesingle{}/\textquotesingle{} 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000008}{Bug}}]No known bugs \end{DoxyRefDesc}
+using try catch to throw and catch an exception
+
+using for loop to iterate over the message
+
+check if char \textquotesingle{}.\textquotesingle{}, \textquotesingle{}-\/\textquotesingle{}, or \textquotesingle{}/\textquotesingle{} then continue else throw exception
+
+throwing exception
+
+printing the exception
+
+exiting the program
+
+Referenced by \mbox{\hyperlink{class_morse_code_afef83f07be2451fb957fa3f55740843b}{decode\+Morse\+Code()}}.
+
+\mbox{\Hypertarget{class_morse_code_a90d1e312e0565928e4a87ba979f73548}\label{class_morse_code_a90d1e312e0565928e4a87ba979f73548}} 
+\index{MorseCode@{MorseCode}!decode@{decode}}
+\index{decode@{decode}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily void Morse\+Code\+::decode (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{morse\+Code\+Letter,  }\item[{unsigned int}]{index,  }\item[{\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ char $>$ $\ast$}]{root\+Tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function decodes the morse code into a message by traversing through the tree ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em morse\+Code\+Letter} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em root\+Tree} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string morsecode, an index, and a binary tree is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ morse code is decoded 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000010}{Bug}}]No known bugs\end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function decodes the morse code into a message by traversing through the tree ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em morse\+Code\+Letter} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em index} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em root\+Tree} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string morsecode, an index, and a binary tree is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ morse code is decoded 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000006}{Bug}}]No known bugs \end{DoxyRefDesc}
+storing a char of the morse code
+
+check if the char matches then go to left subtree
+
+storing the left subtree into a variable
+
+recursive calling the func to traverse the tree
+
+check if the char matches then go to right subtree
+
+storing the right subtree into a variable
+
+recursive calling the func to traverse the tree
+
+check if the char matches whitespace then print it
+
+else print the char inside the current node
+
+References \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{decode()}}, \mbox{\hyperlink{class_binary___tree_a5371047ab25dffa5803fcd9a8ad4e062}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::get\+\_\+data()}}, \mbox{\hyperlink{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::get\+\_\+left\+\_\+subtree()}}, and \mbox{\hyperlink{class_binary___tree_a507650166bae2396ffc2784a445b71e8}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::get\+\_\+right\+\_\+subtree()}}.
+
+
+
+Referenced by \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{decode()}}, and \mbox{\hyperlink{class_morse_code_afef83f07be2451fb957fa3f55740843b}{decode\+Morse\+Code()}}.
+
+\mbox{\Hypertarget{class_morse_code_afef83f07be2451fb957fa3f55740843b}\label{class_morse_code_afef83f07be2451fb957fa3f55740843b}} 
+\index{MorseCode@{MorseCode}!decodeMorseCode@{decodeMorseCode}}
+\index{decodeMorseCode@{decodeMorseCode}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{decodeMorseCode()}{decodeMorseCode()}}
+{\footnotesize\ttfamily void Morse\+Code\+::decode\+Morse\+Code (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{morse\+Code }\end{DoxyParamCaption})}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function decodes the morsecode into message ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em morse\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string morsecode is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ morsecode is decoded 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000016}{Bug}}]No known bugs \end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function decodes the morsecode into message ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em morse\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string morsecode is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ morsecode is decoded 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000005}{Bug}}]No known bugs \end{DoxyRefDesc}
+calling func {\itshape \mbox{\hyperlink{class_morse_code_afc393b90f57ea5d7fd5aa4ad5f7e2093}{Morse\+Code\+::check\+Morse\+Code\+For\+Errors}}} to check for errors in encoded message
+
+creating an object of {\ttfamily istringstream} class to stream the string into different variables. Takes a string as an argument.
+
+stores morse code of a letter
+
+calling func {\itshape \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{Morse\+Code\+::decode}}} to decode the morse code
+
+References \mbox{\hyperlink{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}{binary\+Tree}}, \mbox{\hyperlink{class_morse_code_afc393b90f57ea5d7fd5aa4ad5f7e2093}{check\+Morse\+Code\+For\+Errors()}}, and \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{decode()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}}.
+
+\mbox{\Hypertarget{class_morse_code_a837e217d330d56ce75d81ac270e1521f}\label{class_morse_code_a837e217d330d56ce75d81ac270e1521f}} 
+\index{MorseCode@{MorseCode}!encodeMessage@{encodeMessage}}
+\index{encodeMessage@{encodeMessage}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{encodeMessage()}{encodeMessage()}}
+{\footnotesize\ttfamily void Morse\+Code\+::encode\+Message (\begin{DoxyParamCaption}\item[{std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function encodes the message into morse code ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string message is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ message is encoded 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000015}{Bug}}]No known bugs \end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function encodes the message into morse code ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Pre Condition -\/ a string message is passed 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ message is encoded 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000004}{Bug}}]No known bugs \end{DoxyRefDesc}
+calling {\itshape \mbox{\hyperlink{class_morse_code_a137fa8672c550eab0bb526b6137f01f8}{Morse\+Code\+::check\+Message\+For\+Errors}}} to check for errors in the message
+
+creating a variable to store encoded morse code
+
+using a for loop to encode the message
+
+check if the char is whitespace then add a delimiter \textquotesingle{}/\textquotesingle{} and a whitespace to it
+
+if the char is in uppercase convert it lowercase as all the tree contains lowercase letters
+
+converting uppercase to lowercase
+
+adding the the morsecode to the string to get a full encoded message
+
+re-\/assigning message to morse code to help decode the message without returning a string
+
+print the morse code after encoding the message
+
+References \mbox{\hyperlink{class_morse_code_a137fa8672c550eab0bb526b6137f01f8}{check\+Message\+For\+Errors()}}, and \mbox{\hyperlink{class_morse_code_aa06bef23ee7b46c92e23acf28854fcce}{morse\+Code\+Map}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}}.
+
+\mbox{\Hypertarget{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}\label{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}} 
+\index{MorseCode@{MorseCode}!mapMorseCode@{mapMorseCode}}
+\index{mapMorseCode@{mapMorseCode}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{mapMorseCode()}{mapMorseCode()}}
+{\footnotesize\ttfamily void Morse\+Code\+::map\+Morse\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function read a file then maps the alphabet to its morse code and stores all the alphabet in the binary tree ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ binary tree is filled with values. 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000014}{Bug}}]No known bugs \end{DoxyRefDesc}
+
+
+Module Name\+: Morse Code Encoder/\+Decoder ~\newline
+ Author\+: Faisal Javed ~\newline
+ Date of Creation\+: 24th November, 2022 ~\newline
+ Purpose\+: the function read a file then maps the alphabet to its morse code and stores all the alphabet in the binary tree ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} void 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Post Condition -\/ binary tree is filled with values. 
+\end{DoxyPostcond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000002}{Bug}}]No known bugs \end{DoxyRefDesc}
+creating an object of input file stream to perform read operations. takes {\itshape Student\+Data\+Collection.\+get\+Second\+File\+Input\+Name} function as a {\ttfamily string} argument which returns the file name.
+
+Checks if the file is NOT opened then throw an error and stop the program.
+
+throw is a keyword to define custom exceptions. We will 
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & exception if the file is unable to open.\\
+\hline
+\end{DoxyExceptions}
+creating a variable to store each line from file
+
+while loop to iterate over all the content of file
+
+storing the alphabet
+
+storing the morse code
+
+mapping alphabet and morse code
+
+calling func {\itshape Morse\+Coe\+::add\+Node\+BT} to add alphabets to binary tree
+
+closing the file stream
+
+References \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{add\+Node\+BT()}}, \mbox{\hyperlink{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}{binary\+Tree}}, and \mbox{\hyperlink{class_morse_code_aa06bef23ee7b46c92e23acf28854fcce}{morse\+Code\+Map}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}\label{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}} 
+\index{MorseCode@{MorseCode}!binaryTree@{binaryTree}}
+\index{binaryTree@{binaryTree}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{binaryTree}{binaryTree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$char$>$$\ast$ Morse\+Code\+::binary\+Tree\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Binary\+Tree pointer object. 
+
+
+
+Referenced by \mbox{\hyperlink{class_morse_code_afef83f07be2451fb957fa3f55740843b}{decode\+Morse\+Code()}}, \mbox{\hyperlink{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}{map\+Morse\+Code()}}, and \mbox{\hyperlink{class_morse_code_a4f457e323c0165b2bc8a9f8fcf105812}{Morse\+Code()}}.
+
+\mbox{\Hypertarget{class_morse_code_aa06bef23ee7b46c92e23acf28854fcce}\label{class_morse_code_aa06bef23ee7b46c92e23acf28854fcce}} 
+\index{MorseCode@{MorseCode}!morseCodeMap@{morseCodeMap}}
+\index{morseCodeMap@{morseCodeMap}!MorseCode@{MorseCode}}
+\doxysubsubsection{\texorpdfstring{morseCodeMap}{morseCodeMap}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$char, std\+::string$>$ Morse\+Code\+::morse\+Code\+Map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+unordered map variable to contain mapped morse code and alphabet values. 
+
+
+
+Referenced by \mbox{\hyperlink{class_morse_code_a837e217d330d56ce75d81ac270e1521f}{encode\+Message()}}, and \mbox{\hyperlink{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}{map\+Morse\+Code()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_morse_code_8h}{Morse\+Code.\+h}}\item 
+\mbox{\hyperlink{_morse_code_8cpp}{Morse\+Code.\+cpp}}\end{DoxyCompactItemize}

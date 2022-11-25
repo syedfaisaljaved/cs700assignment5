@@ -6,8 +6,17 @@
  * Student ID: 200491169
  ****************************/
 
+/**
+  * Code placed here is included only once per translation unit.<br>
+  * '#pragma once' is non-standard preprocessor directive intended for implementing compiler-specific preprocessor instructions.<br>
+  * It's purpose is to replace the include guards that you use in header files to avoid multiple inclusion.<br>
+  * */
 #pragma once
-#include <unordered_map>
+#include <unordered_map> /// library that contains unordered map <br>
+/**
+ * @file Binary_Tree.h
+ * @brief user-defined header file Binary_Tree.h to propagate declarations to code file. <br >
+ * */
 #include "Binary_Tree.h"
 
 /**

@@ -1,0 +1,31 @@
+\hypertarget{_morse_code_8h_source}{}\doxysection{Morse\+Code.\+h}
+\mbox{\hyperlink{_morse_code_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*****************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ * @name Module Name: Morse Code Encoder/Decoder}}
+\DoxyCodeLine{3 \textcolor{comment}{ * @author Faisal Javed}}
+\DoxyCodeLine{4 \textcolor{comment}{ * @date 24th November, 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Purpose: CS-\/700 Assignment 5}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Student ID: 200491169}}
+\DoxyCodeLine{7 \textcolor{comment}{ ****************************/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_binary___tree_8h}{Binary\_Tree.h}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_morse_code}{MorseCode}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<char>}}* \mbox{\hyperlink{class_morse_code_adeb1639bf0bc93e8fdb9a6cfce58b652}{binaryTree}};}
+\DoxyCodeLine{30     std::unordered\_map<char, std::string> \mbox{\hyperlink{class_morse_code_aa06bef23ee7b46c92e23acf28854fcce}{morseCodeMap}};}
+\DoxyCodeLine{45     \mbox{\hyperlink{struct_b_t_node}{BTNode<char>}}* \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{addNodeBT}}(\textcolor{keywordtype}{char} alphabet, \textcolor{keyword}{const} std::string\& codePath, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index, \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<char>}}* rootTree);}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{decode}}(\textcolor{keyword}{const} std::string\& morseCodeLetter, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index, \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<char>}}* rootTree);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_morse_code_a137fa8672c550eab0bb526b6137f01f8}{checkMessageForErrors}}(\textcolor{keyword}{const} std::string \&message);}
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_morse_code_afc393b90f57ea5d7fd5aa4ad5f7e2093}{checkMorseCodeForErrors}}(\textcolor{keyword}{const} std::string\& morseCodeMessage);}
+\DoxyCodeLine{84 \textcolor{keyword}{public}:}
+\DoxyCodeLine{90     \mbox{\hyperlink{class_morse_code_a4f457e323c0165b2bc8a9f8fcf105812}{MorseCode}}();}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_morse_code_a4bb609d56a186ee76e55d353cb6e9f4b}{mapMorseCode}}();}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_morse_code_a837e217d330d56ce75d81ac270e1521f}{encodeMessage}}(std::string\& message);}
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_morse_code_afef83f07be2451fb957fa3f55740843b}{decodeMorseCode}}(\textcolor{keyword}{const} std::string\& morseCode);}
+\DoxyCodeLine{126 \};}
+
+\end{DoxyCode}

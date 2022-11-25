@@ -1,0 +1,187 @@
+\hypertarget{_binary___tree_8h_source}{}\doxysection{Binary\+\_\+\+Tree.\+h}
+\mbox{\hyperlink{_binary___tree_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*****************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ * @name Module Name: Morse Code Encoder/Decoder}}
+\DoxyCodeLine{3 \textcolor{comment}{ * @author Faisal Javed}}
+\DoxyCodeLine{4 \textcolor{comment}{ * @date 24th November, 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Purpose: CS-\/700 Assignment 5}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Student ID: 200491169}}
+\DoxyCodeLine{7 \textcolor{comment}{ ****************************/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef BINARY\_TREE\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define BINARY\_TREE\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_b_t_node_8h}{BTNode.h}}"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{22   \textcolor{keyword}{class }\mbox{\hyperlink{class_binary___tree}{Binary\_Tree}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24   \textcolor{keyword}{public}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{comment}{// Constructors and Functions}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{29 \mbox{\hyperlink{class_binary___tree_a82a2763b0ee33366a8e1457532c359df}{Binary\_Tree}}() : \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}}(NULL) \{\}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{36 \mbox{\hyperlink{class_binary___tree_ae2219c5911cd6b4f5ae393a669b4084c}{Binary\_Tree}}(\textcolor{keyword}{const} Item\_Type\& the\_data, }
+\DoxyCodeLine{37             \textcolor{keyword}{const} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}\& left\_child}
+\DoxyCodeLine{38               = \mbox{\hyperlink{class_binary___tree_a82a2763b0ee33366a8e1457532c359df}{Binary\_Tree}}(),}
+\DoxyCodeLine{39             \textcolor{keyword}{const} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}\& right\_child}
+\DoxyCodeLine{40                = \mbox{\hyperlink{class_binary___tree_a82a2763b0ee33366a8e1457532c359df}{Binary\_Tree}}()):}
+\DoxyCodeLine{41   \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}}(new \mbox{\hyperlink{struct_b_t_node}{BTNode}}<Item\_Type>(the\_data, left\_child.\mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}},}
+\DoxyCodeLine{42                              right\_child.\mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}})) \{\}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_binary___tree_ab38b16f2af8424193270821be89ca793}{\string~Binary\_Tree}}() \{\} \textcolor{comment}{// Do nothing.}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{49   \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}} \mbox{\hyperlink{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}{get\_left\_subtree}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{52   \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}} \mbox{\hyperlink{class_binary___tree_a507650166bae2396ffc2784a445b71e8}{get\_right\_subtree}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57   \textcolor{keyword}{const} Item\_Type\& \mbox{\hyperlink{class_binary___tree_a5371047ab25dffa5803fcd9a8ad4e062}{get\_data}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary___tree_ad4b942f7cd2e16b99788bbac1e0475d7}{set\_data}}(Item\_Type\& data) \textcolor{keyword}{const};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binary___tree_a4401f6c9624f4ebf871babdd48706940}{is\_null}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{66   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binary___tree_a90e56ef1866cd43df53b0979a2e6b167}{is\_leaf}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69   \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}{to\_string}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{72   \textcolor{keyword}{static} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}} \mbox{\hyperlink{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}{read\_binary\_tree}}(std::istream\& in);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{75   std::string \mbox{\hyperlink{class_binary___tree_ae8a2c9a4728cffa1ffe5aaac44ee371a}{root\_to\_string}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{76     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}}-\/>to\_string();}
+\DoxyCodeLine{77   \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{80   \mbox{\hyperlink{struct_b_t_node}{BTNode<Item\_Type>}}* \mbox{\hyperlink{class_binary___tree_a8b4fbf192f1c1c0985ad2cd842736295}{getRoot}}();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{83   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary___tree_ae87dc75043551988f06a2088a4ef1c92}{setRoot}}(\mbox{\hyperlink{struct_b_t_node}{BTNode<Item\_Type>}}* node);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{comment}{// Protected constructor}}
+\DoxyCodeLine{89 \textcolor{comment}{}\mbox{\hyperlink{class_binary___tree_a07d91ff4411f5914aa62c7e28385e6f7}{Binary\_Tree}}(\mbox{\hyperlink{struct_b_t_node}{BTNode<Item\_Type>}}* new\_root) : \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}}(new\_root) \{\}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \textcolor{comment}{// Data Field}}
+\DoxyCodeLine{92   \mbox{\hyperlink{struct_b_t_node}{BTNode<Item\_Type>}}* \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94  \textcolor{keyword}{private}:}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96  }
+\DoxyCodeLine{97 \};  \textcolor{comment}{// End Binary\_Tree}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{comment}{// Overloading the ostream insertion operator.}}
+\DoxyCodeLine{100 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{101   std::ostream\& \mbox{\hyperlink{_binary___tree_8h_ab6ecab8bc322f329a2f1b5d139ed3cbe}{operator<<}}(std::ostream\& out, }
+\DoxyCodeLine{102                            \textcolor{keyword}{const} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}\& tree)}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104   \textcolor{keywordflow}{return} out << tree.\mbox{\hyperlink{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}{to\_string}}();}
+\DoxyCodeLine{105 \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{comment}{// Overloading the istream extraction operator}}
+\DoxyCodeLine{108 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{109   std::istream\& \mbox{\hyperlink{_binary___tree_8h_ae06db315ab0db5facde39cd117327cad}{operator>>}}(std::istream\& in, }
+\DoxyCodeLine{110                            \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}\& tree)}
+\DoxyCodeLine{111 \{}
+\DoxyCodeLine{112   tree = \mbox{\hyperlink{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}{Binary\_Tree<Item\_Type>::read\_binary\_tree}}(in);}
+\DoxyCodeLine{113   \textcolor{keywordflow}{return} in;}
+\DoxyCodeLine{114 \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{comment}{// Implementation of member functions}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{119 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{120 std::string \mbox{\hyperlink{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}{Binary\_Tree<Item\_Type>::to\_string}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{121   std::ostringstream os;}
+\DoxyCodeLine{122   \textcolor{keywordflow}{if} (is\_null())}
+\DoxyCodeLine{123     os << \textcolor{stringliteral}{"{}NULL\(\backslash\)n"{}};}
+\DoxyCodeLine{124   \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{125     os << *root << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{126     os << get\_left\_subtree().to\_string();}
+\DoxyCodeLine{127     os << get\_right\_subtree().to\_string();}
+\DoxyCodeLine{128   \}}
+\DoxyCodeLine{129   \textcolor{keywordflow}{return} os.str();}
+\DoxyCodeLine{130 \}}
+\DoxyCodeLine{131 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{132   \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}} \mbox{\hyperlink{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}{Binary\_Tree<Item\_Type>::}}}
+\DoxyCodeLine{133 \mbox{\hyperlink{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}{    read\_binary\_tree}}(std::istream\& in) \{}
+\DoxyCodeLine{134   std::string next\_line;}
+\DoxyCodeLine{135   getline(in, next\_line);}
+\DoxyCodeLine{136   \textcolor{keywordflow}{if} (next\_line == \textcolor{stringliteral}{"{}NULL"{}}) \{}
+\DoxyCodeLine{137     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}();}
+\DoxyCodeLine{138   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{139     Item\_Type the\_data;}
+\DoxyCodeLine{140     std::istringstream ins(next\_line);}
+\DoxyCodeLine{141     ins >> the\_data;}
+\DoxyCodeLine{142     \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}} left = read\_binary\_tree(in);}
+\DoxyCodeLine{143     \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}} right = read\_binary\_tree(in);}
+\DoxyCodeLine{144     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}(the\_data, left, right);}
+\DoxyCodeLine{145   \}}
+\DoxyCodeLine{146 \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{149 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{150 \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}}
+\DoxyCodeLine{151 \mbox{\hyperlink{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}{Binary\_Tree<Item\_Type>::get\_left\_subtree}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{152     \textcolor{keywordflow}{if} (root == NULL) \{}
+\DoxyCodeLine{153         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}get\_left\_subtree on empty tree"{}});}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}(root-\/>left);}
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{159 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{160 \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}}
+\DoxyCodeLine{161 \mbox{\hyperlink{class_binary___tree_a507650166bae2396ffc2784a445b71e8}{Binary\_Tree<Item\_Type>::get\_right\_subtree}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{162     \textcolor{keywordflow}{if} (root == NULL) \{}
+\DoxyCodeLine{163         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}get\_right\_subtree on null tree"{}});}
+\DoxyCodeLine{164     \}}
+\DoxyCodeLine{165     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_binary___tree}{Binary\_Tree<Item\_Type>}}(root-\/>right);}
+\DoxyCodeLine{166 \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{169 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{170 \textcolor{keyword}{const} Item\_Type\& \mbox{\hyperlink{class_binary___tree_a5371047ab25dffa5803fcd9a8ad4e062}{Binary\_Tree<Item\_Type>::get\_data}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{171     \textcolor{keywordflow}{if} (root == NULL) \{}
+\DoxyCodeLine{172         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}get\_data on null tree"{}});}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174     \textcolor{keywordflow}{return} root-\/>data;}
+\DoxyCodeLine{175 \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{178 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{179 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binary___tree_a4401f6c9624f4ebf871babdd48706940}{Binary\_Tree<Item\_Type>::is\_null}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{180     \textcolor{keywordflow}{return} root == NULL;}
+\DoxyCodeLine{181 \}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{184 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{185 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_binary___tree_a90e56ef1866cd43df53b0979a2e6b167}{Binary\_Tree<Item\_Type>::is\_leaf}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{186     \textcolor{keywordflow}{if} (root != NULL) \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{return} root-\/>left == NULL \&\& root-\/>right == NULL;}
+\DoxyCodeLine{188     \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{189         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{190 \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{193 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{194 \mbox{\hyperlink{struct_b_t_node}{BTNode<Item\_Type>}}* \mbox{\hyperlink{class_binary___tree_a8b4fbf192f1c1c0985ad2cd842736295}{Binary\_Tree<Item\_Type>::getRoot}}() \{}
+\DoxyCodeLine{195     \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{199 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{200 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary___tree_ae87dc75043551988f06a2088a4ef1c92}{Binary\_Tree<Item\_Type>::setRoot}}(\mbox{\hyperlink{struct_b_t_node}{BTNode<Item\_Type>}}* node) \{}
+\DoxyCodeLine{201     root = node;}
+\DoxyCodeLine{202 \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{205 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Item\_Type>}
+\DoxyCodeLine{206 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_binary___tree_ad4b942f7cd2e16b99788bbac1e0475d7}{Binary\_Tree<Item\_Type>::set\_data}}(Item\_Type\& data)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{207     \textcolor{keywordflow}{if} (root == NULL) \{}
+\DoxyCodeLine{208         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}get\_data on null tree"{}});}
+\DoxyCodeLine{209     \}}
+\DoxyCodeLine{210     root-\/>data = data;}
+\DoxyCodeLine{211 \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{214 }
+
+\end{DoxyCode}

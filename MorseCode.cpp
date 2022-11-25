@@ -14,11 +14,6 @@
  * @brief user-defined header file MorseCode.h to propagate declarations to code file. <br >
  * */
 #include "MorseCode.h"
-/**
- * @file Binary_Tree.h
- * @brief user-defined header file Binary_Tree.h to propagate declarations to code file. <br >
- * */
-#include "Binary_Tree.h"
 
 /**
  * 'namespace' is used to organise the names of program entities.

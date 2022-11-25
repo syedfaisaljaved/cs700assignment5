@@ -1,0 +1,57 @@
+\hypertarget{_binary___tree_8h}{}\doxysection{Binary\+\_\+\+Tree.\+h File Reference}
+\label{_binary___tree_8h}\index{Binary\_Tree.h@{Binary\_Tree.h}}
+
+
+user-\/defined header file \mbox{\hyperlink{_binary___tree_8h}{Binary\+\_\+\+Tree.\+h}} to propagate declarations to code file. ~\newline
+  
+
+
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}BTNode.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Item\+\_\+\+Type $>$ }\\std\+::ostream \& \mbox{\hyperlink{_binary___tree_8h_ab6ecab8bc322f329a2f1b5d139ed3cbe}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&tree)
+\item 
+{\footnotesize template$<$typename Item\+\_\+\+Type $>$ }\\std\+::istream \& \mbox{\hyperlink{_binary___tree_8h_ae06db315ab0db5facde39cd117327cad}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&tree)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+user-\/defined header file \mbox{\hyperlink{_binary___tree_8h}{Binary\+\_\+\+Tree.\+h}} to propagate declarations to code file. ~\newline
+ 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_binary___tree_8h_ab6ecab8bc322f329a2f1b5d139ed3cbe}\label{_binary___tree_8h_ab6ecab8bc322f329a2f1b5d139ed3cbe}} 
+\index{Binary\_Tree.h@{Binary\_Tree.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Binary\_Tree.h@{Binary\_Tree.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&}]{tree }\end{DoxyParamCaption})}
+
+
+
+References \mbox{\hyperlink{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::to\+\_\+string()}}.
+
+\mbox{\Hypertarget{_binary___tree_8h_ae06db315ab0db5facde39cd117327cad}\label{_binary___tree_8h_ae06db315ab0db5facde39cd117327cad}} 
+\index{Binary\_Tree.h@{Binary\_Tree.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Binary\_Tree.h@{Binary\_Tree.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&}]{tree }\end{DoxyParamCaption})}
+
+
+
+References \mbox{\hyperlink{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::read\+\_\+binary\+\_\+tree()}}.
+

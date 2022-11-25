@@ -1,0 +1,253 @@
+\hypertarget{class_binary___tree}{}\doxysection{Binary\+\_\+\+Tree\texorpdfstring{$<$}{<} Item\+\_\+\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_binary___tree}\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+
+
+{\ttfamily \#include $<$Binary\+\_\+\+Tree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary___tree_a82a2763b0ee33366a8e1457532c359df}{Binary\+\_\+\+Tree}} ()
+\item 
+\mbox{\hyperlink{class_binary___tree_ae2219c5911cd6b4f5ae393a669b4084c}{Binary\+\_\+\+Tree}} (const Item\+\_\+\+Type \&the\+\_\+data, const \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&left\+\_\+child=\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}(), const \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&right\+\_\+child=\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}())
+\item 
+virtual \mbox{\hyperlink{class_binary___tree_ab38b16f2af8424193270821be89ca793}{$\sim$\+Binary\+\_\+\+Tree}} ()
+\item 
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \mbox{\hyperlink{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}{get\+\_\+left\+\_\+subtree}} () const
+\item 
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \mbox{\hyperlink{class_binary___tree_a507650166bae2396ffc2784a445b71e8}{get\+\_\+right\+\_\+subtree}} () const
+\item 
+const Item\+\_\+\+Type \& \mbox{\hyperlink{class_binary___tree_a5371047ab25dffa5803fcd9a8ad4e062}{get\+\_\+data}} () const
+\item 
+void \mbox{\hyperlink{class_binary___tree_ad4b942f7cd2e16b99788bbac1e0475d7}{set\+\_\+data}} (Item\+\_\+\+Type \&data) const
+\item 
+bool \mbox{\hyperlink{class_binary___tree_a4401f6c9624f4ebf871babdd48706940}{is\+\_\+null}} () const
+\item 
+bool \mbox{\hyperlink{class_binary___tree_a90e56ef1866cd43df53b0979a2e6b167}{is\+\_\+leaf}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}{to\+\_\+string}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_binary___tree_ae8a2c9a4728cffa1ffe5aaac44ee371a}{root\+\_\+to\+\_\+string}} () const
+\item 
+\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$ \mbox{\hyperlink{class_binary___tree_a8b4fbf192f1c1c0985ad2cd842736295}{get\+Root}} ()
+\item 
+void \mbox{\hyperlink{class_binary___tree_ae87dc75043551988f06a2088a4ef1c92}{set\+Root}} (\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \mbox{\hyperlink{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}{read\+\_\+binary\+\_\+tree}} (std\+::istream \&in)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary___tree_a07d91ff4411f5914aa62c7e28385e6f7}{Binary\+\_\+\+Tree}} (\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$new\+\_\+root)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$ \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{root}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Item\+\_\+\+Type$>$\newline
+class Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$}
+Class for a binary tree. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_binary___tree_a82a2763b0ee33366a8e1457532c359df}\label{class_binary___tree_a82a2763b0ee33366a8e1457532c359df}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!Binary\_Tree@{Binary\_Tree}}
+\index{Binary\_Tree@{Binary\_Tree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{Binary\_Tree()}{Binary\_Tree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\mbox{\hyperlink{class_binary___tree}{\+::\+Binary\+\_\+\+Tree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct an empty \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}. \mbox{\Hypertarget{class_binary___tree_ae2219c5911cd6b4f5ae393a669b4084c}\label{class_binary___tree_ae2219c5911cd6b4f5ae393a669b4084c}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!Binary\_Tree@{Binary\_Tree}}
+\index{Binary\_Tree@{Binary\_Tree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{Binary\_Tree()}{Binary\_Tree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\mbox{\hyperlink{class_binary___tree}{\+::\+Binary\+\_\+\+Tree}} (\begin{DoxyParamCaption}\item[{const Item\+\_\+\+Type \&}]{the\+\_\+data,  }\item[{const \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&}]{left\+\_\+child = {\ttfamily \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$~Item\+\_\+Type~$>$()},  }\item[{const \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \&}]{right\+\_\+child = {\ttfamily \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$~Item\+\_\+Type~$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct a \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}} with two subtrees. 
+\begin{DoxyParams}{Parameters}
+{\em the\+\_\+data} & The data at the root \\
+\hline
+{\em left\+\_\+child} & The left subtree \\
+\hline
+{\em right\+\_\+child} & The right subtree \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binary___tree_ab38b16f2af8424193270821be89ca793}\label{class_binary___tree_ab38b16f2af8424193270821be89ca793}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!````~Binary\_Tree@{$\sim$Binary\_Tree}}
+\index{````~Binary\_Tree@{$\sim$Binary\_Tree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Binary\_Tree()}{~Binary\_Tree()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+virtual \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::$\sim$\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual destructor to avoid warnings \mbox{\Hypertarget{class_binary___tree_a07d91ff4411f5914aa62c7e28385e6f7}\label{class_binary___tree_a07d91ff4411f5914aa62c7e28385e6f7}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!Binary\_Tree@{Binary\_Tree}}
+\index{Binary\_Tree@{Binary\_Tree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{Binary\_Tree()}{Binary\_Tree()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\mbox{\hyperlink{class_binary___tree}{\+::\+Binary\+\_\+\+Tree}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$}]{new\+\_\+root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Construct a \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}} with a given tree\+Node as the root 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_binary___tree_a5371047ab25dffa5803fcd9a8ad4e062}\label{class_binary___tree_a5371047ab25dffa5803fcd9a8ad4e062}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!get\_data@{get\_data}}
+\index{get\_data@{get\_data}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{get\_data()}{get\_data()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+const Item\+\_\+\+Type \& \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::get\+\_\+data}
+
+Return the data field of the root. 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if empty tree\\
+\hline
+\end{DoxyExceptions}
+Return data of this tree 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{Morse\+Code\+::decode()}}.
+
+\mbox{\Hypertarget{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}\label{class_binary___tree_ad004b95c7e2eac2a64c29ef1cb712368}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!get\_left\_subtree@{get\_left\_subtree}}
+\index{get\_left\_subtree@{get\_left\_subtree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{get\_left\_subtree()}{get\_left\_subtree()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::get\+\_\+left\+\_\+subtree}
+
+Return the left subtree.
+
+Return a left subtree of this tree 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{Morse\+Code\+::add\+Node\+BT()}}, and \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{Morse\+Code\+::decode()}}.
+
+\mbox{\Hypertarget{class_binary___tree_a507650166bae2396ffc2784a445b71e8}\label{class_binary___tree_a507650166bae2396ffc2784a445b71e8}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!get\_right\_subtree@{get\_right\_subtree}}
+\index{get\_right\_subtree@{get\_right\_subtree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{get\_right\_subtree()}{get\_right\_subtree()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::get\+\_\+right\+\_\+subtree}
+
+Return the right subtree.
+
+Return a right subtree of this tree 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{Morse\+Code\+::add\+Node\+BT()}}, and \mbox{\hyperlink{class_morse_code_a90d1e312e0565928e4a87ba979f73548}{Morse\+Code\+::decode()}}.
+
+\mbox{\Hypertarget{class_binary___tree_a8b4fbf192f1c1c0985ad2cd842736295}\label{class_binary___tree_a8b4fbf192f1c1c0985ad2cd842736295}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$ \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::get\+Root}
+
+returns the root node
+
+Return data of this tree 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{Morse\+Code\+::add\+Node\+BT()}}.
+
+\mbox{\Hypertarget{class_binary___tree_a90e56ef1866cd43df53b0979a2e6b167}\label{class_binary___tree_a90e56ef1866cd43df53b0979a2e6b167}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!is\_leaf@{is\_leaf}}
+\index{is\_leaf@{is\_leaf}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{is\_leaf()}{is\_leaf()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::is\+\_\+leaf}
+
+Indicate that this tree is a leaf.
+
+Return leaf node of this tree \mbox{\Hypertarget{class_binary___tree_a4401f6c9624f4ebf871babdd48706940}\label{class_binary___tree_a4401f6c9624f4ebf871babdd48706940}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!is\_null@{is\_null}}
+\index{is\_null@{is\_null}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{is\_null()}{is\_null()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::is\+\_\+null}
+
+Indicate that this is the empty tree.
+
+Return if tree is null 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{Morse\+Code\+::add\+Node\+BT()}}.
+
+\mbox{\Hypertarget{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}\label{class_binary___tree_a569d87c27db1d567f0ca0d9507d1e37e}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!read\_binary\_tree@{read\_binary\_tree}}
+\index{read\_binary\_tree@{read\_binary\_tree}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{read\_binary\_tree()}{read\_binary\_tree()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$ \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::read\+\_\+binary\+\_\+tree (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Read a binary tree 
+
+Referenced by \mbox{\hyperlink{_binary___tree_8h_ae06db315ab0db5facde39cd117327cad}{operator$>$$>$()}}.
+
+\mbox{\Hypertarget{class_binary___tree_ae8a2c9a4728cffa1ffe5aaac44ee371a}\label{class_binary___tree_ae8a2c9a4728cffa1ffe5aaac44ee371a}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!root\_to\_string@{root\_to\_string}}
+\index{root\_to\_string@{root\_to\_string}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{root\_to\_string()}{root\_to\_string()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+std\+::string \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::root\+\_\+to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return a string representation of the root 
+
+References \mbox{\hyperlink{class_binary___tree_a3a808171611ba95b161585fece0f4a51}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::root}}.
+
+\mbox{\Hypertarget{class_binary___tree_ad4b942f7cd2e16b99788bbac1e0475d7}\label{class_binary___tree_ad4b942f7cd2e16b99788bbac1e0475d7}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!set\_data@{set\_data}}
+\index{set\_data@{set\_data}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{set\_data()}{set\_data()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+void \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::set\+\_\+data (\begin{DoxyParamCaption}\item[{Item\+\_\+\+Type \&}]{data }\end{DoxyParamCaption}) const}
+
+Set the data field of the root. 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{Morse\+Code\+::add\+Node\+BT()}}.
+
+\mbox{\Hypertarget{class_binary___tree_ae87dc75043551988f06a2088a4ef1c92}\label{class_binary___tree_ae87dc75043551988f06a2088a4ef1c92}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!setRoot@{setRoot}}
+\index{setRoot@{setRoot}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{setRoot()}{setRoot()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+void \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::set\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$ Item\+\_\+\+Type $>$ $\ast$}]{node }\end{DoxyParamCaption})}
+
+set the root node
+
+sets data of this tree 
+
+Referenced by \mbox{\hyperlink{class_morse_code_a5ceb91708b300e02aa201fa8a8ec99f7}{Morse\+Code\+::add\+Node\+BT()}}.
+
+\mbox{\Hypertarget{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}\label{class_binary___tree_ab407d75c8a9e8b9477bcf6ffda91b255}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+std\+::string \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::to\+\_\+string\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Return a string representation of this tree.
+
+Return a string representation of this tree 
+
+Referenced by \mbox{\hyperlink{_binary___tree_8h_ab6ecab8bc322f329a2f1b5d139ed3cbe}{operator$<$$<$()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_binary___tree_a3a808171611ba95b161585fece0f4a51}\label{class_binary___tree_a3a808171611ba95b161585fece0f4a51}} 
+\index{Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}!root@{root}}
+\index{root@{root}!Binary\_Tree$<$ Item\_Type $>$@{Binary\_Tree$<$ Item\_Type $>$}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily template$<$typename Item\+\_\+\+Type $>$ \\
+\mbox{\hyperlink{struct_b_t_node}{BTNode}}$<$Item\+\_\+\+Type$>$$\ast$ \mbox{\hyperlink{class_binary___tree}{Binary\+\_\+\+Tree}}$<$ Item\+\_\+\+Type $>$\+::root\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by \mbox{\hyperlink{class_binary___tree_ae8a2c9a4728cffa1ffe5aaac44ee371a}{Binary\+\_\+\+Tree$<$ Item\+\_\+\+Type $>$\+::root\+\_\+to\+\_\+string()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_binary___tree_8h}{Binary\+\_\+\+Tree.\+h}}\end{DoxyCompactItemize}
