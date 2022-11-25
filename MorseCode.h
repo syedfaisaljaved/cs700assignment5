@@ -3,16 +3,19 @@
 //
 
 #pragma once
-#include "TreeNode.h"
+#include <unordered_map>
 #include "Binary_Tree.h"
 
-class MorseCode{
+class MorseCode : public Binary_Tree<char>{
 private:
-    TreeNode* treeNode;
+    std::unordered_map<char, std::string> morseCodeMap;
     void mapMorseCode();
-
+    BTNode<char>* addNode(char alphabet, const std::string& codePath, unsigned int index, BTNode<char>* binaryNode);
+    void decode(const std::string& morseCodeLetter, unsigned int index, BTNode<char>* binaryNode);
+    void checkMessageForErrors(std::string &message);
+    void checkMorseCodeForErrors(std::string morseCode);
 public:
     MorseCode();
-    void encodeMessage(const std::string& message);
+    void encodeMessage(std::string& message);
     void decodeMorseCode(const std::string& morseCode);
 };

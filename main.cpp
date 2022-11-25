@@ -4,7 +4,12 @@
 using namespace std;
 
 int main() {
+
+    cout << "Enter a message" << endl;
+    string message;
+    cin >> message;
     MorseCode morseCode;
-    cout << morseCode.encodeMessage("Hello");
+    morseCode.encodeMessage(message);
+    morseCode.decodeMorseCode(message);
     return 0;
 }

@@ -3,11 +3,14 @@
 //
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "MorseCode.h"
+#include "Binary_Tree.h"
 
 using namespace std;
 
 MorseCode::MorseCode() {
+    root = new BTNode<char>('*');
     mapMorseCode();
 }
 
@@ -24,30 +27,76 @@ void MorseCode::mapMorseCode() {
     }
 
     string line;
-    treeNode = new TreeNode();
 
     while (getline(fileStream, line)) {
         char alphabet = line[0];
         string morseCode = line.substr(1, line.size());
-        treeNode->addRootNodeToTree(alphabet, morseCode);
+        morseCodeMap[alphabet] = morseCode;
+        addNode(alphabet, morseCode, 0, root);
     }
 
     fileStream.close();
 }
 
-void MorseCode::encodeMessage(const string& message) {
+BTNode<char> *MorseCode::addNode(char alphabet, const string &codePath, unsigned int index, BTNode<char>* binaryNode) {
+    if (binaryNode == NULL) {
+        binaryNode = new BTNode<char>(' ');
+    }
+
+    if (codePath[index] == '.') {
+        binaryNode->left = addNode(alphabet, codePath, ++index, binaryNode->left);
+    } else if (codePath[index] == '-') {
+        binaryNode->right = addNode(alphabet, codePath, ++index, binaryNode->right);
+    } else {
+        binaryNode->data = alphabet;
+    }
+
+    return binaryNode;
+}
+
+void MorseCode::encodeMessage(string &message) {
     string morseCode;
-    for (char alphabet : message) {
+    for (char alphabet: message) {
         if (alphabet == ' ') {
-            morseCode += ' ';
+            morseCode += '/';
             continue;
         }
 
+        if (isupper(alphabet)) {
+            alphabet = tolower(alphabet);
+        }
+
+        morseCode += morseCodeMap[alphabet] + ' ';
     }
 
+    message = morseCode;
+    cout << morseCode << endl;
 }
 
-void MorseCode::decodeMorseCode(const std::string& morseCode) {
-    treeNode->decodeMorseCode(morseCode);
+void MorseCode::decodeMorseCode(const std::string &morseCode) {
+    istringstream stringstream(morseCode);
+    string morseCodeLetter;
+    while(stringstream >> morseCodeLetter){
+        decode(morseCodeLetter, 0, root);
+    }
+}
+
+void MorseCode::decode(const string &morseCodeLetter, unsigned int index, BTNode<char> *binaryNode) {
+    char morseCodeChar = morseCodeLetter[index];
+
+    if(morseCodeChar == '.'){
+        decode(morseCodeLetter, ++index, binaryNode->left);
+    } else if(morseCodeChar == '-'){
+        decode(morseCodeLetter, ++index, binaryNode->right);
+    } else if(morseCodeChar == '/'){
+        cout << " ";
+    } else {
+        char result = binaryNode->data;
+        cout << result;
+    }
+}
+
+void MorseCode::checkMessageForErrors() {
+
 }
 

@@ -65,6 +65,9 @@ Binary_Tree(const Item_Type& the_data,
     return root->to_string();
   }
 
+  /** returns the root node */
+  BTNode<Item_Type>* getRoot();
+
 
   protected:
 
@@ -166,6 +169,11 @@ bool Binary_Tree<Item_Type>::is_leaf() const {
         return root->left == NULL && root->right == NULL;
     } else
         return true;
+}
+
+template<typename Item_Type>
+BTNode<Item_Type>* Binary_Tree<Item_Type>::getRoot() {
+    return root;
 }
 
 
