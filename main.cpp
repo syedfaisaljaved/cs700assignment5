@@ -15,7 +15,10 @@
  * */
 #include "MorseCode.h"
 
-
+/**
+ * 'namespace' is used to organise the names of program entities.
+ * The below statement declares that program will be accessing entities whose name are the part of namespace called std.
+ * */
 using namespace std;
 
 /**
@@ -38,8 +41,8 @@ int main() {
     getline(cin, message); /// taking user input
     MorseCode morseCode; /// creating object of class @a MorseCode
     morseCode.mapMorseCode(); /// calling function @a MorseCode.mapMorseCode
-    morseCode.encodeMessage(message); /// calling function @a MorseCode.encodeMessage
-    morseCode.decodeMorseCode(message); /// calling function @a MorseCode.decodeMorseCode
+    morseCode.encodeMessage(message); /// calling function @a MorseCode::encodeMessage
+    morseCode.decodeMorseCode(message); /// calling function @a MorseCode::decodeMorseCode
     return 0; /// returns 0 if the program is executed successfully because main() has a return type of integer.
 
     /// program terminates here.

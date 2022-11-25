@@ -1,3 +1,11 @@
+/*****************************
+ * @name Module Name: Morse Code Encoder/Decoder
+ * @author Faisal Javed
+ * @date 24th November, 2022
+ * Purpose: CS-700 Assignment 5
+ * Student ID: 200491169
+ ****************************/
+
 #ifndef BTNODE_H_
 #define BTNODE_H_
 #include <sstream>
