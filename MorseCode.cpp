@@ -96,7 +96,15 @@ void MorseCode::decode(const string &morseCodeLetter, unsigned int index, BTNode
     }
 }
 
-void MorseCode::checkMessageForErrors(string &message) {
-
+void MorseCode::checkMessageForErrors(const string &message) {
+    try{
+        for(const char alphabet: message){
+            if(!isalpha(alphabet)){
+                throw exception();
+            }
+        }
+    }catch(exception e){
+        cout << "Error: message should only contains alphabets." << endl;
+    }
 }
 

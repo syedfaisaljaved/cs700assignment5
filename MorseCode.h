@@ -12,8 +12,8 @@ private:
     void mapMorseCode();
     BTNode<char>* addNode(char alphabet, const std::string& codePath, unsigned int index, BTNode<char>* binaryNode);
     void decode(const std::string& morseCodeLetter, unsigned int index, BTNode<char>* binaryNode);
-    void checkMessageForErrors(std::string &message);
-    void checkMorseCodeForErrors(std::string morseCode);
+    void checkMessageForErrors(const std::string &message);
+    void checkMorseCodeForErrors(const std::string morseCode);
 public:
     MorseCode();
     void encodeMessage(std::string& message);
