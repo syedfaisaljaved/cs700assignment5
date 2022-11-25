@@ -7,7 +7,7 @@ int main() {
 
     cout << "Enter a message" << endl;
     string message;
-    cin >> message;
+    getline(cin, message);
     MorseCode morseCode;
     morseCode.encodeMessage(message);
     morseCode.decodeMorseCode(message);

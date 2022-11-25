@@ -3,7 +3,6 @@
 //
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include "MorseCode.h"
 #include "Binary_Tree.h"
 
@@ -15,7 +14,7 @@ MorseCode::MorseCode() {
 }
 
 void MorseCode::mapMorseCode() {
-    ifstream fileStream("/Users/faisal/CLionProjects/cs700assignment5/Morse_Code.txt");
+    ifstream fileStream("Morse_Code.txt");
 
     /// Checks if the file is NOT opened then throw an error and stop the program.
     if (!fileStream.is_open()) {
@@ -59,7 +58,7 @@ void MorseCode::encodeMessage(string &message) {
     string morseCode;
     for (char alphabet: message) {
         if (alphabet == ' ') {
-            morseCode += '/';
+            morseCode += "/ ";
             continue;
         }
 
@@ -101,12 +100,12 @@ void MorseCode::decode(const string &morseCodeLetter, unsigned int index, BTNode
 void MorseCode::checkMessageForErrors(const string &message) {
     try{
         for(const char alphabet: message){
-            if(!isalpha(alphabet)){
+            if(!isalpha(alphabet) && alphabet != ' '){
                 throw exception();
             }
         }
     }catch(exception e){
-        cout << "Error: message should only contains alphabets." << endl;
+        cout << "Error: message should only contains alphabets and whitespaces." << endl;
         exit(0);
     }
 }
@@ -114,9 +113,11 @@ void MorseCode::checkMessageForErrors(const string &message) {
 void MorseCode::checkMorseCodeForErrors(const std::string morseCodeMessage) {
     try{
         for(const char morseCode: morseCodeMessage){
-            if(morseCode != '.' && morseCode != '-'){
-                throw exception();
+            if(morseCode == '.' || morseCode == '-' || morseCode == '/' || morseCode == ' '){
+                continue;
             }
+
+            throw exception();
         }
     }catch(exception e){
         cout << "Error: morse code is not properly encoded." << endl;
