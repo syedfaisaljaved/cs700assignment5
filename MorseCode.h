@@ -13,7 +13,7 @@ private:
     BTNode<char>* addNode(char alphabet, const std::string& codePath, unsigned int index, BTNode<char>* binaryNode);
     void decode(const std::string& morseCodeLetter, unsigned int index, BTNode<char>* binaryNode);
     void checkMessageForErrors(const std::string &message);
-    void checkMorseCodeForErrors(const std::string morseCode);
+    void checkMorseCodeForErrors(const std::string morseCodeMessage);
 public:
     MorseCode();
     void encodeMessage(std::string& message);

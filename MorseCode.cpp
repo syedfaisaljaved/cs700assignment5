@@ -55,6 +55,7 @@ BTNode<char> *MorseCode::addNode(char alphabet, const string &codePath, unsigned
 }
 
 void MorseCode::encodeMessage(string &message) {
+    checkMessageForErrors(message);
     string morseCode;
     for (char alphabet: message) {
         if (alphabet == ' ') {
@@ -74,6 +75,7 @@ void MorseCode::encodeMessage(string &message) {
 }
 
 void MorseCode::decodeMorseCode(const std::string &morseCode) {
+    checkMorseCodeForErrors(morseCode);
     istringstream stringstream(morseCode);
     string morseCodeLetter;
     while(stringstream >> morseCodeLetter){
@@ -105,6 +107,7 @@ void MorseCode::checkMessageForErrors(const string &message) {
         }
     }catch(exception e){
         cout << "Error: message should only contains alphabets." << endl;
+        exit(0);
     }
 }
 
@@ -117,6 +120,7 @@ void MorseCode::checkMorseCodeForErrors(const std::string morseCodeMessage) {
         }
     }catch(exception e){
         cout << "Error: morse code is not properly encoded." << endl;
+        exit(0);
     }
 }
 
