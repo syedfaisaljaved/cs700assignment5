@@ -108,3 +108,15 @@ void MorseCode::checkMessageForErrors(const string &message) {
     }
 }
 
+void MorseCode::checkMorseCodeForErrors(const std::string morseCodeMessage) {
+    try{
+        for(const char morseCode: morseCodeMessage){
+            if(morseCode != '.' && morseCode != '-'){
+                throw exception();
+            }
+        }
+    }catch(exception e){
+        cout << "Error: morse code is not properly encoded." << endl;
+    }
+}
+
