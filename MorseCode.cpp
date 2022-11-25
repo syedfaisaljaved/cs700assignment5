@@ -1,6 +1,4 @@
-//
-// Created by Faisal Javed on 24/11/22.
-//
+
 #include <iostream>
 #include <fstream>
 #include "MorseCode.h"
@@ -9,8 +7,7 @@
 using namespace std;
 
 MorseCode::MorseCode() {
-    root = new BTNode<char>('*');
-    mapMorseCode();
+    binaryTree = new Binary_Tree<char>();
 }
 
 void MorseCode::mapMorseCode() {
@@ -31,26 +28,28 @@ void MorseCode::mapMorseCode() {
         char alphabet = line[0];
         string morseCode = line.substr(1, line.size());
         morseCodeMap[alphabet] = morseCode;
-        addNode(alphabet, morseCode, 0, root);
+        addNodeBT(alphabet, morseCode, 0, binaryTree);
     }
 
     fileStream.close();
 }
 
-BTNode<char> *MorseCode::addNode(char alphabet, const string &codePath, unsigned int index, BTNode<char>* binaryNode) {
-    if (binaryNode == NULL) {
-        binaryNode = new BTNode<char>(' ');
+BTNode<char> *MorseCode::addNodeBT(char alphabet, const string &codePath, unsigned int index, Binary_Tree<char>* bt) {
+    if (bt->is_null()) {
+        bt->setRoot(new BTNode<char>(' '));
     }
 
     if (codePath[index] == '.') {
-        binaryNode->left = addNode(alphabet, codePath, ++index, binaryNode->left);
+        auto left = bt->get_left_subtree();
+        bt->getRoot()->left = addNodeBT(alphabet, codePath, ++index, &left);
     } else if (codePath[index] == '-') {
-        binaryNode->right = addNode(alphabet, codePath, ++index, binaryNode->right);
+        auto right = bt->get_right_subtree();
+        bt->getRoot()->right = addNodeBT(alphabet, codePath, ++index, &right);
     } else {
-        binaryNode->data = alphabet;
+        bt->set_data(alphabet);
     }
 
-    return binaryNode;
+    return bt->getRoot();
 }
 
 void MorseCode::encodeMessage(string &message) {
@@ -78,22 +77,23 @@ void MorseCode::decodeMorseCode(const std::string &morseCode) {
     istringstream stringstream(morseCode);
     string morseCodeLetter;
     while(stringstream >> morseCodeLetter){
-        decode(morseCodeLetter, 0, root);
+        decode(morseCodeLetter, 0, binaryTree);
     }
 }
 
-void MorseCode::decode(const string &morseCodeLetter, unsigned int index, BTNode<char> *binaryNode) {
+void MorseCode::decode(const string &morseCodeLetter, unsigned int index, Binary_Tree<char> *bt) {
     char morseCodeChar = morseCodeLetter[index];
 
     if(morseCodeChar == '.'){
-        decode(morseCodeLetter, ++index, binaryNode->left);
+        auto left = bt->get_left_subtree();
+        decode(morseCodeLetter, ++index, &left);
     } else if(morseCodeChar == '-'){
-        decode(morseCodeLetter, ++index, binaryNode->right);
+        auto right = bt->get_right_subtree();
+        decode(morseCodeLetter, ++index, &right);
     } else if(morseCodeChar == '/'){
         cout << " ";
     } else {
-        char result = binaryNode->data;
-        cout << result;
+        cout << bt->get_data();
     }
 }
 
@@ -110,7 +110,7 @@ void MorseCode::checkMessageForErrors(const string &message) {
     }
 }
 
-void MorseCode::checkMorseCodeForErrors(const std::string morseCodeMessage) {
+void MorseCode::checkMorseCodeForErrors(const std::string& morseCodeMessage) {
     try{
         for(const char morseCode: morseCodeMessage){
             if(morseCode == '.' || morseCode == '-' || morseCode == '/' || morseCode == ' '){

@@ -48,6 +48,9 @@ Binary_Tree(const Item_Type& the_data,
   */
   const Item_Type& get_data() const;
 
+  /** Set the data field of the root. */
+  void set_data(Item_Type& data) const;
+
   /** Indicate that this is the empty tree. */
   bool is_null() const;
 
@@ -68,6 +71,8 @@ Binary_Tree(const Item_Type& the_data,
   /** returns the root node */
   BTNode<Item_Type>* getRoot();
 
+  /** set the root node */
+  void setRoot(BTNode<Item_Type>* node);
 
   protected:
 
@@ -132,6 +137,7 @@ template<typename Item_Type>
   }
 }
 
+/** Return a left subtree of this tree */
 template<typename Item_Type>
 Binary_Tree<Item_Type>
 Binary_Tree<Item_Type>::get_left_subtree() const {
@@ -141,6 +147,7 @@ Binary_Tree<Item_Type>::get_left_subtree() const {
     return Binary_Tree<Item_Type>(root->left);
 }
 
+/** Return a right subtree of this tree */
 template<typename Item_Type>
 Binary_Tree<Item_Type>
 Binary_Tree<Item_Type>::get_right_subtree() const {
@@ -150,6 +157,7 @@ Binary_Tree<Item_Type>::get_right_subtree() const {
     return Binary_Tree<Item_Type>(root->right);
 }
 
+/** Return data of this tree */
 template<typename Item_Type>
 const Item_Type& Binary_Tree<Item_Type>::get_data() const {
     if (root == NULL) {
@@ -158,11 +166,13 @@ const Item_Type& Binary_Tree<Item_Type>::get_data() const {
     return root->data;
 }
 
+/** Return if tree is null */
 template<typename Item_Type>
 bool Binary_Tree<Item_Type>::is_null() const {
     return root == NULL;
 }
 
+/** Return leaf node of this tree */
 template<typename Item_Type>
 bool Binary_Tree<Item_Type>::is_leaf() const {
     if (root != NULL) {
@@ -171,11 +181,26 @@ bool Binary_Tree<Item_Type>::is_leaf() const {
         return true;
 }
 
+/** Return data of this tree */
 template<typename Item_Type>
 BTNode<Item_Type>* Binary_Tree<Item_Type>::getRoot() {
     return root;
 }
 
+/** sets data of this tree */
+template<typename Item_Type>
+void Binary_Tree<Item_Type>::setRoot(BTNode<Item_Type>* node) {
+    root = node;
+}
+
+/** Set the data field of the root. */
+template<typename Item_Type>
+void Binary_Tree<Item_Type>::set_data(Item_Type& data) const {
+    if (root == NULL) {
+        throw std::invalid_argument("get_data on null tree");
+    }
+    root->data = data;
+}
 
 #endif
 
